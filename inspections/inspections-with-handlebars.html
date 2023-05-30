@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html style="background: #fafafa">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/css">
+      @import url("https://fonts.googleapis.com/css2?family=Archivo&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font: inherit;
+        font-family: "Archivo", "Arial", sans-serif;
+        vertical-align: baseline;
+        font-size: 16px;
+      }
+      li {
+        margin: 0;
+        list-style: unset;
+      }
+      .first-section-background {
+        min-height: 347px;
+        padding-bottom: 24px;
+        background: linear-gradient(
+          180deg,
+          rgba(251, 196, 65, 1) 38%,
+          rgba(255, 255, 255, 1) 38%
+        );
+        text-align: center;
+      }
+      .number-components {
+        width: 159px;
+        height: 120px;
+        padding: 16px;
+        list-style: none;
+        float: left;
+        list-style: none;
+        border: 8px solid #f3f4f6;
+        border-radius: 10px;
+        background: #fff;
+        text-align: left;
+      }
+      .number-components-font {
+        font-size: 32px;
+      }
+      .number-components-middle-container {
+        list-style: none;
+        float: left;
+        padding: 0 8px;
+      }
+      .background-line {
+        display: inline-block;
+        width: 100%;
+        height: 1px;
+        background-image: url("http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/71a6c93e-eccb-4ea8-a891-9119d95f8e33/713x2.png");
+        background-repeat: repeat-x;
+      }
+      .inspection-item,
+      .inspection-item td {
+        font-size: 12px;
+        color: #4b5563;
+        border: 0px solid #e5e7eb;
+        border-width: 0;
+        border-top-width: 0.5px;
+        border-collapse: collapse;
+      }
+      .inspection-item {
+        width: 100%;
+        padding-top: 24px;
+        border-top-width: 0px;
+      }
+      .inspection-item th {
+        padding-top: 9px;
+        font-weight: 600;
+        font-size: 11px;
+        color: #9ca3af;
+        border-top-width: 0px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .inspection-item tr {
+        height: 56px;
+      }
+      .inspection-item td {
+        padding-right: 38px;
+        padding-top: 8px;
+        vertical-align: top;
+      }
+      .inspection-item td:nth-child(1) {
+        min-width: 120px;
+      }
+      .inspection-item td:nth-child(2) {
+        min-width: 200px;
+        padding-right: 38px;
+      }
+      .inspection-item td:nth-child(3) {
+        min-width: 105px;
+        padding-right: 38px;
+      }
+      .inspection-item td:nth-child(4) {
+        min-width: 40px;
+        padding-right: 0px;
+      }
+      @media only screen and (max-width: 600px) {
+        .first-section-background {
+          background: linear-gradient(
+            180deg,
+            rgba(251, 196, 65, 1) 30%,
+            rgba(255, 255, 255, 1) 30%
+          );
+        }
+        .number-components {
+          width: 115px;
+          height: 77px;
+          font-size: 12px;
+        }
+        .number-components-font {
+          font-size: 20px;
+        }
+        .inspection-item td {
+          min-width: auto !important;
+        }
+      }
+      @media only screen and (max-width: 400px) {
+        .number-components {
+          width: 80px;
+          height: 65px;
+          padding: 8px;
+          font-size: 12px;
+        }
+        .number-components-middle-container {
+          padding: 0 4px;
+        }
+      }
+      @media only screen and (max-width: 300px) {
+        .number-components {
+          padding: 2px;
+          width: 75px;
+        }
+      }
+    </style>
+  </head>
+  <body style="margin: 0; background: #fafafa">
+    <div>
+      <table
+        data-role="module-unsubscribe"
+        class="module"
+        role="module"
+        data-type="unsubscribe"
+        style="
+          position: relative;
+          max-width: 600px;
+          width: 100%;
+          height: 100%;
+          margin: auto;
+          color: #444444;
+          font-size: 12px;
+          line-height: 20px;
+          text-align: Center;
+          background: #fafafa;
+        "
+        data-muid="4e838cf3-9892-4a6d-94d6-170e474d21e5"
+      >
+        <!-- Main content -->
+        <tr
+          style="
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: #fafafa;
+          "
+        >
+          <td style="display: block; width: 100%; height: 100%">
+            <center>
+              <table style="width: 100%; background: #fafafa">
+                <!-- Logo -->
+                <tr
+                  style="min-height: 90px; text-align: center; background: #fff"
+                >
+                  <td style="padding: 28px 0 24px">
+                    <p>
+                      <img
+                        src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/f597b6a4-9721-44c3-8c73-b33e35b422d2/92x19.png"
+                        alt=""
+                      />
+                    </p>
+                    <p>{{date}}</p>
+                  </td>
+                </tr>
+                <!-- Inspections general numbers -->
+                <tr class="first-section-background">
+                  <td style="padding: 59px 0 40px">
+                    <table style="margin: auto">
+                      <tr>
+                        <td>
+                          <table style="margin: auto">
+                            <tr>
+                              <td>
+                                <!-- Numbers component 1 -->
+                                <li style="list-style: none; float: left">
+                                  <table class="number-components">
+                                    <tr>
+                                      <td>Inspections</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="number-components-font">
+                                        {{#if inspections}} {{inspections}}
+                                        {{else}} 00 {{/if}}
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </li>
+                              </td>
+                              <td>
+                                <!-- Numbers component 2 -->
+                                <li class="number-components-middle-container">
+                                  <table class="number-components">
+                                    <tr>
+                                      <td>Violations</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="number-components-font">
+                                        {{#if violations}} {{violations}}
+                                        {{else}} 00 {{/if}}
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </li>
+                              </td>
+                              <td>
+                                <!-- Numbers component 3 -->
+                                <li style="list-style: none; float: left">
+                                  <table class="number-components">
+                                    <tr>
+                                      <td style="white-space: nowrap">
+                                        OOS Violations
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="number-components-font">
+                                        {{#if oos}} {{oos}} {{else}} 00 {{/if}}
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </li>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <!-- Principal Title section -->
+                      <tr>
+                        <td style="padding-top: 24px; text-align: center">
+                          <p
+                            style="
+                              font-weight: 700;
+                              font-size: 20px;
+                              line-height: 24px;
+                            "
+                          >
+                            2 Minute Video on <br />
+                            <span style="color: #eba90f"
+                              >Inspections vs. Insurance Rates.</span
+                            >
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding-top: 16px; text-align: center">
+                          <a href="">
+                            <button
+                              style="
+                                width: 120px;
+                                height: 40px;
+                                background: #111827;
+                                border-radius: 4px;
+                                border: unset;
+                                text-align: center;
+                                font-size: 14px;
+                                color: #f9fafb;
+                                cursor: pointer;
+                              "
+                            >
+                              Watch now
+                            </button>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <!-- Inspections summary list -->
+                <tr>
+                  <td>
+                    <ul style="padding: 0; margin: 0; list-style-type: none">
+                      <!-- List item -->
+                      {{#each details}}
+                      <li
+                        style="
+                          max-width: 576px;
+                          margin-top: 24px;
+                          background: #fff;
+                          padding: 13px 12px 12px;
+                        "
+                      >
+                        <!-- Inspection item numbers section -->
+                        <table
+                          style="
+                            width: 100%;
+                            border: 0px solid #e5e7eb;
+                            border-bottom-width: 0.5px;
+                          "
+                        >
+                          <tr>
+                            <td style="padding-bottom: 24px">
+                              <table style="display: inline-table">
+                                <tr>
+                                  <td style="height: 33px; padding-bottom: 8px">
+                                    <span
+                                      style="font-weight: 600; color: #111827"
+                                      >Inspection</span
+                                    >
+                                    <span
+                                      style="
+                                        padding: 0 14px 0 8px;
+                                        font-size: 14px;
+                                        color: #9ca3af;
+                                      "
+                                      >{{this.inspection_id}}</span
+                                    >
+                                    {{#greaterThan this.total_violations 0}}
+                                    <img
+                                      style="position: relative; top: 7px"
+                                      src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/7639820b-a95d-4c76-92b2-6592e4dfa5fd/88x24.png"
+                                      alt="violation inpection"
+                                    />
+                                    {{else}}
+                                    <img
+                                      style="position: relative; top: 7px"
+                                      src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/23e0ac85-9f1e-468b-b7aa-df6ded717a8e/54x24.png"
+                                      alt="clear inpection"
+                                    />
+                                    {{/greaterThan}}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td style="color: #6b7280">
+                                    <span
+                                      style="
+                                        height: 22px;
+                                        font-size: 12px;
+                                        padding-right: 6px;
+                                      "
+                                      ><img
+                                        style="vertical-align: sub"
+                                        src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/d9f98fda-a734-4b63-a477-3171a77645e3/16x16.png"
+                                        alt=""
+                                      />
+                                      {{formatDate this.date "MMM DD,
+                                      YYYY"}}</span
+                                    >
+                                    <span
+                                      style="
+                                        height: 22px;
+                                        font-size: 12px;
+                                        padding: 0 6px;
+                                        border: solid #e5e7eb;
+                                        border-width: 0 0.5px;
+                                      "
+                                      ><img
+                                        style="vertical-align: sub"
+                                        src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/cf71f7eb-ae1f-4bb7-833d-4b7485de5df5/16x16.png"
+                                        alt=""
+                                      />
+                                      {{this.unit_license}}</span
+                                    >
+                                    <span
+                                      style="
+                                        height: 22px;
+                                        font-size: 12px;
+                                        padding-left: 6px;
+                                      "
+                                      ><img
+                                        style="vertical-align: sub"
+                                        src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/e007c89a-578e-44a4-9056-68b06af19f10/16x16.png"
+                                        alt=""
+                                      />
+                                      {{this.report_state}}</span
+                                    >
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                            <td style="padding-bottom: 24px; text-align: end">
+                              <table
+                                style="
+                                  display: inline-table;
+                                  margin-left: auto;
+                                  position: relative;
+                                  top: 12px;
+                                  color: #111827;
+                                "
+                              >
+                                <tr>
+                                  <td
+                                    style="
+                                      padding-bottom: 8px;
+                                      padding-right: 9px;
+                                      font-size: 28px;
+                                      font-weight: 700;
+                                    "
+                                  >
+                                    {{this.total_violations}}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-size: 12px; font-weight: 400">
+                                    Violations
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <!-- Inspection item table summary -->
+                        {{#if total_violations}}
+                        <table class="inspection-item">
+                          <tr style="height: 36px; font-size: 12px">
+                            <th>Violation Code</th>
+                            <th>Description</th>
+                            <th>Basic</th>
+                            <th style="text-align: start">OOS</th>
+                          </tr>
+                          {{#each this.violations}}
+                          <tr>
+                            <td>{{this.viol_code}}</td>
+                            <td>{{this.section_desc}}</td>
+                            <td>{{this.basic_desc}}</td>
+                            <td>
+                              {{#equals this.oos_indicator "Y"}}
+                              <img
+                                src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/7c69215d-5388-47be-8a38-4069d3b36250/42x22.png"
+                                alt="has OOS"
+                              />
+                              {{else}}
+                              <img
+                                style="position: relative; top: 7px"
+                                src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/19376360-6a00-4635-a96e-ddb6465b6711/36x20.png"
+                                alt="clear inpection"
+                              />
+                              {{/equals}}
+                            </td>
+                          </tr>
+                          {{/each}}
+                        </table>
+                        {{else}} {{/if}}
+                      </li>
+                      {{/each}}
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding-top: 72px">
+                    <!-- Footer -->
+                    <table
+                      style="margin: auto; max-width: 242px; text-align: center"
+                    >
+                      <tr>
+                        <td style="padding-bottom: 16px; width: 100%">
+                          <img
+                            src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/8c78c6a1-4e16-4fbc-98d9-90ce0ed2990c/33x34.png"
+                            alt="footer logo"
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding-bottom: 32px">
+                          <p
+                            style="
+                              color: #4b5563;
+                              font-weight: 400;
+                              font-size: 12px;
+                              white-space: nowrap;
+                            "
+                          >
+                            LogRock - the only free Driver Recruiting <br />
+                            + DOT compliance software.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          style="padding-bottom: 32px; vertical-align: middle"
+                        >
+                          <span
+                            class="background-line"
+                            style="min-width: unset"
+                          ></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding-bottom: 32px">
+                          <p
+                            style="
+                              color: #9ca3af;
+                              font-weight: 400;
+                              font-size: 12px;
+                              line-height: 20px;
+                            "
+                          >
+                            Do you have any questions or need help? <br />
+                            Talk to us!
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding-bottom: 16px">
+                          <a
+                            href=""
+                            style="text-align: unset; color: transparent"
+                          >
+                            <img
+                              src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/9694e150-74d9-4414-994e-ae52107d5460/130x130.png"
+                              alt="whatsapp icon"
+                              style="
+                                width: 15px;
+                                height: 15px;
+                                padding-right: 4.5px;
+                                cursor: pointer;
+                              "
+                            />
+                          </a>
+                          <a
+                            href="mailto:letsrock@logrock.com"
+                            style="
+                              text-align: unset;
+                              color: transparent;
+                              cursor: pointer;
+                            "
+                          >
+                            <img
+                              src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/ad045074-0767-4836-8b16-6c5ef08cb207/130x130.png"
+                              alt="mail icon"
+                              style="
+                                width: 15px;
+                                height: 15px;
+                                padding-right: 4.5px;
+                                cursor: pointer;
+                              "
+                            />
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding-bottom: 8px">
+                          <a
+                            href="https://app.logrock.com/auth/login"
+                            style="
+                              width: 71px;
+                              white-space: nowrap;
+                              font-size: 12px;
+                              font-weight: 400;
+                              color: #111827;
+                            "
+                          >
+                            app.logrock.com
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding-bottom: 8px">
+                          <a
+                            href="mailto:help@logrock.com"
+                            style="
+                              width: 71px;
+                              white-space: nowrap;
+                              font-size: 12px;
+                              font-weight: 400;
+                              color: #111827;
+                            "
+                          >
+                            help@logrock.com
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p
+                            style="
+                              color: #6b7280;
+                              font-weight: 400;
+                              font-size: 12px;
+                              line-height: 20px;
+                            "
+                          >
+                            8am to 6pm CDT
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="padding: 0 8px 32px 8px">
+                      <p
+                        style="
+                          font-size: 12px;
+                          vertical-align: middle;
+                          margin-top: 32px;
+                          color: #6b7280;
+                        "
+                      >
+                        Powered by LogRock
+                        <a
+                          style="
+                            font-size: 12px;
+                            vertical-align: middle;
+                            margin-top: 12px;
+                            color: #6b7280;
+                            text-decoration: underline;
+                          "
+                          class="Unsubscribe--unsubscribeLink"
+                          href="{{{unsubscribe}}}"
+                          target="_blank"
+                        >
+                          Unsubscribe
+                        </a>
+                        -
+
+                        <a
+                          style="
+                            font-size: 12px;
+                            vertical-align: middle;
+                            margin-top: 12px;
+                            color: #6b7280;
+                            text-decoration: underline;
+                          "
+                          href="{{{unsubscribe_preferences}}}"
+                          target="_blank"
+                          class="Unsubscribe--unsubscribePreferences"
+                          >Unsubscribe Preferences</a
+                        >
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </center>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
