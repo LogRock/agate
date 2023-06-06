@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo"
+      rel="stylesheet"
+    />
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font: inherit;
+        font-family: "Archivo", "Arial", sans-serif;
+        vertical-align: baseline;
+        font-size: 16px;
+      }
+    
+      /* CLIENT-SPECIFIC STYLES */
+      body,
+      table,
+      td,
+      a {
+        -webkit-text-size-adjust: 100% !important;
+        -ms-text-size-adjust: 100% !important;
+      }
+      table,
+      td {
+        mso-table-lspace: 0pt !important;
+        mso-table-rspace: 0pt !important;
+      }
+      img {
+        -ms-interpolation-mode: bicubic !important;
+      }
+    
+      /* RESET STYLES */
+      img {
+        border: 0 !important;
+        height: auto !important;
+        line-height: 100% !important;
+        outline: none !important;
+        text-decoration: none !important;
+      }
+      table {
+        border-collapse: collapse !important;
+      }
+      body {
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+      }
+    
+      /* iOS BLUE LINKS */
+      a[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+    
+      /* MOBILE STYLES */
+      @media screen and (max-width: 600px) {
+        h1 {
+          font-size: 32px !important;
+          line-height: 32px !important;
+        }
+      }
+    
+      /* ANDROID CENTER FIX */
+      div[style*="margin: 16px 0 !important;"] {
+        margin: 0 !important;
+      }
+    
+      li {
+        margin: 0 !important;
+        list-style: unset !important;
+      }
+      .MsoNormalTable{
+        margin: auto;
+      }
+      .first-section-background {
+        min-height: 347px !important;
+        padding-bottom: 24px !important;
+        background: linear-gradient(
+          180deg,
+          rgba(251, 196, 65, 1) 38%,
+          rgba(255, 255, 255, 1) 38%
+        ) !important;
+        text-align: center !important;
+      }
+      .number-components {
+        width: 100% !important;
+        height: 100% !important;
+        padding: 16px !important;
+        border: 8px solid #f3f4f6 !important;
+        border-radius: 10px !important;
+        background: #ffffff !important;
+        text-align: left !important;
+      }
+      .number-components-font {
+        font-size: 32px !important;
+        padding-top: 8px!important;
+      }
+      .inspection-item,
+      .inspection-item td {
+        font-size: 12px !important;
+        color: #4b5563 !important;
+        border: 0px solid #e5e7eb !important;
+        border-width: 0 !important;
+        border-top-width: 0.5px !important;
+        border-collapse: collapse !important;
+      }
+      .inspection-item {
+        width: 100% !important;
+        padding-top: 24px !important;
+        border-top-width: 0px !important;
+      }
+      .inspection-item th {
+        padding-top: 9px !important;
+        font-weight: 600 !important;
+        font-size: 11px !important;
+        color: #9ca3af !important;
+        border-top-width: 0px !important;
+        letter-spacing: 2px !important;
+        text-transform: uppercase !important;
+      }
+      .inspection-item tr {
+        height: 56px !important;
+      }
+      .inspection-item td {
+        padding-right: 38px !important;
+        padding-top: 8px !important;
+        vertical-align: top !important;
+      }
+      .inspection-item td:nth-child(1) {
+        min-width: 120px !important;
+      }
+      .inspection-item td:nth-child(2) {
+        min-width: 200px !important;
+        padding-right: 38px !important;
+      }
+      .inspection-item td:nth-child(3) {
+        min-width: 105px !important;
+        padding-right: 38px !important;
+      }
+      .inspection-item td:nth-child(4) {
+        min-width: 40px !important;
+        padding-right: 0px !important;
+      }
+      .background-line {
+        display: inline-block !important;
+        width: 242px !important;
+        height: 1px !important;
+        background-image: url("http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/71a6c93e-eccb-4ea8-a891-9119d95f8e33/713x2.png") !important;
+        background-repeat: repeat-x !important;
+      }
+      @media only screen and (max-width: 600px) {
+        .number-components {
+          width: 115px !important;
+          height: 77px !important;
+          font-size: 12px !important;
+        }
+        .number-components-font {
+          font-size: 20px !important;
+        }
+      }
+      @media only screen and (max-width: 400px) {
+        .number-components {
+          width: 80px !important;
+          height: 65px !important;
+          padding: 8px !important;
+          font-size: 12px !important;
+        }
+        .number-components-middle-container {
+          padding: 0 4px !important;
+        }
+      }
+      @media only screen and (max-width: 300px) {
+        .number-components {
+          padding: 2px !important;
+          width: 75px !important;
+        }
+      }
+    </style>
+  </head>
+  <body style="width: 100%;background-color: #f4f4f4;margin: 0;padding: 0;margin: auto;text-align: center;">
+      <table
+        role="presentation"
+        border="0"
+        cellpadding="0"
+        cellspacing="0"
+        width="600px"
+        valign="center"
+        style="margin:auto;text-align: center;"
+      >
+        <tr align="center" height="90px">
+          <td bgcolor="#ffffff" style="padding: 28px 0 24px">
+            <p>
+              <img
+                src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/f597b6a4-9721-44c3-8c73-b33e35b422d2/92x19.png"
+                alt=""
+              />
+            </p>
+            <p>May 2023</p>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" bgcolor="#FBC441" style="padding: 24px 0;">
+            <table
+              role="presentation"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              width="auto"
+              style="max-width: 478px"
+            >
+              <tr>
+                <td align="center" valign="top" width="auto">
+                    <table width="100%" height="100%" bgcolor="#ffffff" role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" class="number-components">
+                      <tr>
+                        <td align="left" valign="top" style="padding: 16px">
+                          <p>Inspections</p>
+                          <p class="number-components-font">3</p>
+                        </td>
+                      </tr>
+                    </table>                  
+                </td>
+                <td style="padding: 0 16px">
+                    <table width="100%" height="100%" bgcolor="#ffffff" role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" class="number-components">
+                      <tr>
+                        <td align="left" valign="top" style="padding: 16px">
+                          <p>Inspections</p>
+                          <p class="number-components-font">3</p>
+                        </td>
+                      </tr>
+                    </table>                    
+                </td>
+                <td>
+                    <table width="100%" height="100%" bgcolor="#ffffff" role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" class="number-components">
+                      <tr>
+                        <td align="left" valign="top" style="padding: 16px">
+                          <p style="white-space: nowrap"> OOS Violations</p>
+                          <p style="text-align: left" class="number-components-font">3</p>
+                        </td>
+                      </tr>
+                    </table>                   
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#ffffff" align="center" style="padding: 0px 10px 0px 10px">
+            <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="auto" >
+              <tr>
+                <td bgcolor="#ffffff" align="center" valign="top" width="auto" style="padding-top: 24px; text-align: center"
+                >
+                  <p style="font-weight: 700; font-size: 20px; line-height: 24px">
+                    2 Minute Video on <br />
+                    <span style="color: #eba90f;">Inspections vs. Insurance Rates.</span>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff" align="center">                 
+                  <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="auto">
+                    <tr>
+                      <td align="center" valign="top" width="auto"style="padding: 20px 30px 24px">                     
+                        <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="auto">
+                          <tr>
+                            <td align="center" valign="top" width="auto" style="border-radius: 3px;padding: 15px 25px;">
+                              <a
+                                href="https://litmus.com"
+                                target="_blank"
+                                style=" font-size: 20px; font-family: Helvetica, Arial, sans-serif; color:#ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding:15px 25px; background: #111827; border-radius: 4px; border: unset; display:inline-block; "
+                                >Watch now</a
+                              >
+                            </td>
+                          </tr>
+                        </table>                        
+                      </td>
+                    </tr>
+                  </table>                 
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>    
+        <tr>
+            <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 0px 10px"></td>
+        </tr>        
+        <tr>
+          <td bgcolor="#ffffff" align="center" style="text-align: center;" >
+            <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="100%" style="max-width: 600px">
+              <tr>
+                <td align="center" valign="top" width="576px">
+                  <div
+                    style="padding: 29px 12px 12px;"
+                  >
+                    <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="100%" style="border: 0px solid #e5e7eb;border-bottom-width: 0.5px;">
+                      <tr>
+                        <td align="center" valign="top" width="100%" style="padding-bottom: 24px">
+                          <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="100%" style="display: inline-table">
+                            <tr>
+                              <td align="left" valign="top" width="100%" style="height: 33px; padding-bottom: 8px">
+                                <span style="font-weight: 600; color: #111827"
+                                  >Inspection</span
+                                >
+                                <span
+                                  style="padding: 0 14px 0 8px;font-size: 14px;color: #9ca3af;"
+                                  >#142801</span
+                                >
+                                <img
+                                  style="position: relative; top: 7px"
+                                  src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/7639820b-a95d-4c76-92b2-6592e4dfa5fd/88x24.png"
+                                  alt="violation inpection"
+                                />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="left" valign="top" width="100%" style="color: #6b7280">
+                                <span
+                                  style="
+                                    height: 22px;
+                                    font-size: 12px;
+                                    padding-right: 6px;
+                                  "
+                                  ><img
+                                    style="vertical-align: sub"
+                                    src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/d9f98fda-a734-4b63-a477-3171a77645e3/16x16.png"
+                                    alt=""
+                                  />
+                                  May 08, 2020</span
+                                >
+                                <span
+                                  style="height: 22px;font-size: 12px;padding: 0 6px;border: solid #e5e7eb;border-width: 0 0.5px;"
+                                  ><img
+                                    style="vertical-align: sub"
+                                    src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/cf71f7eb-ae1f-4bb7-833d-4b7485de5df5/16x16.png"
+                                    alt=""
+                                  />
+                                  124MG3</span
+                                >
+                                <span
+                                  style="height: 22px;font-size: 12px;padding-left: 6px;"
+                                  ><img
+                                    style="vertical-align: sub"
+                                    src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/e007c89a-578e-44a4-9056-68b06af19f10/16x16.png"
+                                    alt=""
+                                  />
+                                  IL</span
+                                >
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td align="center" valign="top" width="100%" style="padding-bottom: 24px; text-align: end">
+                          <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="100%" style="display: inline-table;margin-left: auto;position: relative;top: 12px;color: #111827;">
+                            <tr>
+                              <td align="center" valign="top" width="100%"style="padding-bottom: 8px;padding-right: 9px;font-size: 28px;font-weight: 700;">
+                                02
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="center" valign="top" width="100%" style="font-size: 12px; font-weight: 400">
+                                Violations
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="100%" class="inspection-item">
+                      <tr style="height: 36px; font-size: 12px">
+                        <th style="text-align: left" valign="left">Violation Code</th>
+                        <th style="text-align: left" valign="left">Description</th>
+                        <th style="text-align: left" valign="left">Basic</th>
+                        <th style="text-align: left" valign="left">OOS</th>
+                      </tr>
+                      <tr>
+                        <td>3922SLGG4</td>
+                        <td>
+                          State/Local Laws - Speeding 15 or more miles per hour
+                          over the speed limit.
+                        </td>
+                        <td>Unsafe Driving</td>
+                        <td>
+                          <img
+                            src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/7c69215d-5388-47be-8a38-4069d3b36250/42x22.png"
+                            alt="has OOS"
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3922SLGG4</td>
+                        <td>Too fast</td>
+                        <td>Fast Driving</td>
+                        <td>
+                          <img
+                            src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/7c69215d-5388-47be-8a38-4069d3b36250/42x22.png"
+                            alt="has OOS"
+                          />
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+            <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 0px 10px"></td>
+        </tr>
+        <tr>
+          <td bgcolor="#ffffff" align="center" style="text-align: center;" >
+            <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="100%" style="max-width: 600px">
+              <tr>
+                <td align="center" valign="top" width="576px">
+                  <div
+                    style="padding: 29px 12px 12px;"
+                  >
+                    <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="100%" style="border: 0px solid #e5e7eb;border-bottom-width: 0.5px;">
+                      <tr>
+                        <td align="center" valign="top" width="100%" style="padding-bottom: 24px">
+                          <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="100%" style="display: inline-table">
+                            <tr>
+                              <td align="left" valign="top" width="100%" style="height: 33px; padding-bottom: 8px">
+                                <span style="font-weight: 600; color: #111827"
+                                  >Inspection</span
+                                >
+                                <span
+                                  style="padding: 0 14px 0 8px;font-size: 14px;color: #9ca3af;"
+                                  >#142802</span
+                                >
+                                <img
+                                  style="position: relative; top: 7px"
+                                  src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/93b1897b-cf27-4710-92c3-58118bc1724a/54x24.png"
+                                  alt="violation inpection"
+                                />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="left" valign="top" width="100%" style="color: #6b7280">
+                                <span
+                                  style="
+                                    height: 22px;
+                                    font-size: 12px;
+                                    padding-right: 6px;
+                                  "
+                                  ><img
+                                    style="vertical-align: sub"
+                                    src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/d9f98fda-a734-4b63-a477-3171a77645e3/16x16.png"
+                                    alt=""
+                                  />
+                                  May 08, 2020</span
+                                >
+                                <span
+                                  style="height: 22px;font-size: 12px;padding: 0 6px;border: solid #e5e7eb;border-width: 0 0.5px;"
+                                  ><img
+                                    style="vertical-align: sub"
+                                    src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/cf71f7eb-ae1f-4bb7-833d-4b7485de5df5/16x16.png"
+                                    alt=""
+                                  />
+                                  124MG3</span
+                                >
+                                <span
+                                  style="height: 22px;font-size: 12px;padding-left: 6px;"
+                                  ><img
+                                    style="vertical-align: sub"
+                                    src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/e007c89a-578e-44a4-9056-68b06af19f10/16x16.png"
+                                    alt=""
+                                  />
+                                  IL</span
+                                >
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td align="center" valign="top" width="100%" style="padding-bottom: 24px; text-align: end">
+                          <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" width="100%" style="display: inline-table;margin-left: auto;position: relative;top: 12px;color: #111827;">
+                            <tr>
+                              <td align="center" valign="top" width="100%"style="padding-bottom: 8px;padding-right: 9px;font-size: 28px;font-weight: 700;">
+                                00
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="center" valign="top" width="100%" style="font-size: 12px; font-weight: 400">
+                                Violations
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>        
+        <tr>
+          <td align="center" style="padding: 30px 10px 0px 10px;text-align: center;">
+            <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0"  width="100%">
+            <tr>
+              <td align="center" valign="top" width="auto" style="padding-bottom: 16px; width: 100%;">
+                <img
+                  src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/8c78c6a1-4e16-4fbc-98d9-90ce0ed2990c/33x34.png"
+                  alt="footer logo"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-bottom: 32px">
+                <p
+                  style="width: 213px;color:#4b5563;font-weight: 400;font-size: 12px;white-space: nowrap;"
+                >
+                  LogRock - the only free Driver Recruiting <br />
+                  + DOT compliance software.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td
+                 style="width: 242px;padding-bottom: 32px; vertical-align: middle"
+              >
+                <span
+                  class="background-line"
+                ></span>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-bottom: 32px">
+                <p
+                  style="color: #9ca3af;font-weight: 400;font-size: 12px;line-height: 20px;"
+                >
+                  Do you have any questions or need help? <br />
+                  Talk to us!
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-bottom: 16px">
+                <a
+                  href=""
+                  style="text-align: unset; color: transparent"
+                >
+                  <img
+                    src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/9694e150-74d9-4414-994e-ae52107d5460/130x130.png"
+                    alt="whatsapp icon"
+                    width="15"
+                    height="15"                     
+                    style="padding-right: 3.5px;cursor: pointer;"
+                  />
+                </a>
+                <a
+                  href="mailto:letsrock@logrock.com"
+                  style="text-align: unset;color: transparent;cursor: pointer;"
+                >
+                  <img
+                    src="http://cdn.mcauto-images-production.sendgrid.net/cf1a3ff99d28777a/ad045074-0767-4836-8b16-6c5ef08cb207/130x130.png"
+                    alt="mail icon"
+                    width="15"
+                    height="15" 
+                    style="padding-right: 4.5px;cursor: pointer;"
+                  />
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-bottom: 8px">
+                <a
+                  href="http://url7774.logrockmail.com/ls/click?upn=SnaOKxmBU9Kpyi1uwZ1xxcCjFXavyCuFpRtqvIJh0VJxjMgVtfmYMC0l1L25HwZn4on4_fa8OcRtc0EFQF1Qsd4N1KY4hbjnFTLpBUIpp8dcsmm4amMpQIqKdVFdMufc64C0pSgMUVwMAIxi06wICAZJT-2FDfZBNWutIYPK7XX16ddbT8KQJPwiP-2FfJJo4RtnAWRKuCjrfB37eqcpJtsXb1P8BmNdzY6c9r6PbbwHLvpjBWINjzOKZm114bl-2FYSv6oUbiC5POH7MMkXagl2Pi2hX1id4OOvKYAHbgVDkwXRVNEueg366izlLOXhz5f-2FVVUm9lpAQM0JBv2ZEyBz41Chj-2FCNIazymOVOpXBKXrtTKu-2B-2FK8nlKsToOKd-2Bn4C2a-2Bv-2F0xwYnBkFRRxmd8ggkh6C0JfoJ107Ro1I8WBe-2Bq-2FACRO8j8aDO53vUQnWboz6DoGKS4zf76nDFks-2BoiytSPXxUSCAYYEBOxc8yoVJPk18YJDcCjl4Kl1KJstUjSZpXowiy1yu5I7Ez6wRMe3OsKK-2FOeWyZ0F7ETBX-2FNLZSxQSxsR4PMvV4HHEC-2BjfFF0Env4vfMemzYbQrFL0H1WLg0odWXZVAQAzZYb3wWbd9yG086rHKXIMOYJRcXfOR40O-2BUKB7tI"
+                  style="width: 71px;white-space: nowrap;font-size: 12px;font-weight: 400;color: #111827;"
+                >
+                  app.logrock.com
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-bottom: 8px">
+                <a
+                  href="mailto:help@logrock.com"
+                  style="width: 71px;white-space: nowrap;font-size: 12px;font-weight: 400;color: #111827;"
+                >
+                  help@logrock.com
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <p
+                  style="color: #6b7280;font-weight: 400;font-size: 12px;line-height: 20px;"
+                >
+                  8am to 6pm CDT
+                </p>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+  </body>
+</html>
