@@ -1,0 +1,10 @@
+{ 
+  "month": "April",
+  "prevMonth": "March",
+  "points": -1.5,
+  "factors": [
+      {"name": "Driver OOS Rate", "points": -1.5}, 
+      {"name": "Controlled Substances and Alcohol", "points": -1.5},
+      {"name": "Safety Rating (FMCSA Audit Result)", "points": -1.5}
+  ]
+}
