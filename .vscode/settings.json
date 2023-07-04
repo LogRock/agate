@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "dir"
+        "dir",
+        "defaults"
     ]
 }
