@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "dir",
-        "defaults"
+        "defaults",
+        "plg"
     ]
 }

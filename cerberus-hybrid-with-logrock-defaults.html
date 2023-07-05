@@ -221,6 +221,51 @@
                 font-size: 17px !important;
             }
         }
+
+        /* All Dark Scheme Styling */
+        @media (prefers-color-scheme: dark) {
+
+            /* Email background where supported */
+            /* ADD this class to whatever elements are having the wrong BG color on dark mode. */
+            body,
+            .background-color {
+                background-color: #3B3C40 !important;
+            }
+
+            h1 {
+                color: #F9FAFB !important;
+            }
+
+            span,
+            p {
+                color: #D1D5DB !important;
+            }
+
+            a {
+                color: #FFFFFF !important;
+            }
+
+            .button-a-primary,
+            .button-td-primary {
+                color: #374151 !important;
+                background-color: #FFFFFF !important;
+                border-color: #FFFFFF !important;
+            }
+
+            .button-td-primary:hover,
+            .button-a-primary:hover {
+                background-color: #EFEFEF !important;
+                border-color: #EFEFEF !important;
+            }
+
+            .display-only-in-dark-mode {
+                display: inline-block !important;
+            }
+
+            .display-only-in-light-mode {
+                display: none !important;
+            }
+        }
     </style>
     <!-- Progressive Enhancements : END -->
 
@@ -276,8 +321,8 @@
                 <!-- Email Header : BEGIN -->
                 <tr>
                     <td style="padding: 20px 0; text-align: center">
-                        <img src="https://via.placeholder.com/91x18" width="91" height="18" alt="LogRock Logo"
-                            border="0"
+                        <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/64c022d8-ea16-40be-9cf0-d09d1a8edd56/183x37.png"
+                            width="91" height="18" alt="LogRock Logo" border="0"
                             style="height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;">
                     </td>
                 </tr>
@@ -774,21 +819,24 @@
                 </tr>
                 <!-- 1 Column Text : END -->
 
-            </table>
-            <!-- Email Body : END -->
-
-            <!-- Email Footer : BEGIN -->
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="242px"
-                style="max-width: 242px;">
+                <!-- LogRock Footer: BEGIN -->
                 <tr>
                     <td
                         style="padding: 0px; font-family: Archivo, Arial, sans-serif; font-size: 12px; line-height: 15px; text-align: center; color: #ffffff;">
 
-                        <img src="https://via.placeholder.com/24x24" width="24" height="24" alt="LogRock Logo"
-                            border="0"
-                            style="height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 10px; color: #555555;">
+                        <br />
+                        <br />
 
-                        <p style="
+                        <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/f38f7e36-5e54-44f9-9e6c-7401d2614a6e/50x48.png"
+                            width="24" height="24" alt="LogRock Logo" border="0" role="presentation"
+                            style="height: auto; background: #ffffff; font-family: sans-serif; font-size: 15px; line-height: 10px; color: #555555;">
+
+                        <br />
+                        <br />
+
+                        <span style="
+                        width: 240px;
+                        display: inline-block;
                         color: #4B5563;
                         text-align: center;
                         font-size: 12px;
@@ -797,23 +845,36 @@
                         font-weight: 400;
                         line-height: 20px;">
                             LogRock - the only free Driver Recruiting + DOT compliance software.
-                        </p>
+                        </span>
 
                         <br />
-                        <hr />
                         <br />
 
-                        <p style="color: #9CA3AF;
+                        <hr style="width: 240px;" />
+
+                        <br />
+
+                        <span style="
+                        width: 240px;
+                        display: inline-block;
+                        color: #9CA3AF;
                         text-align: center;
-                        
-                        /* Paragraph/XSmall/Regular */
                         font-size: 12px;
                         font-family: Archivo;
                         font-style: normal;
                         font-weight: 400;
                         line-height: 20px;">
                             Do you have any questions or need help? <br /> Talk to us!
-                        </p>
+                        </span>
+
+                        <br />
+                        <br />
+
+                        <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/637e775c-b632-42b7-bd38-eb3fc915afdf/32x32.png"
+                            width="16" height="16" border="0" role="presentation"
+                            style="height: auto; background: #ffffff; font-family: sans-serif; font-size: 15px; line-height: 10px; color: #555555;">
+                        <br />
+                        <br />
 
                         <a href="https://app.logrock.com" style="color: #111827;
                         text-align: center;
@@ -862,8 +923,10 @@
                         <unsubscribe style="color: #ffffff; text-decoration: underline;">unsubscribe</unsubscribe> -->
                     </td>
                 </tr>
+                <!-- LogRock Footer: END -->
+
             </table>
-            <!-- Email Footer : END -->
+            <!-- Email Body : END -->
 
             <!--[if mso]>
             </td>
