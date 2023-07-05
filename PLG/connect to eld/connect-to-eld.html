@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <meta charset="utf-8"> <!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+    <meta name="x-apple-disable-message-reformatting"> <!-- Disable auto-scale in iOS 10 Mail entirely -->
+    <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
+    <!-- Tell iOS not to automatically link certain text strings. -->
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
+    <title></title> <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+    <!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+
+    <!-- Web Font / @font-face : BEGIN -->
+    <!-- NOTE: If web fonts are not required, lines 23 - 41 can be safely removed. -->
+
+    <!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
+    <!--[if mso]>
+        <style>
+            * {
+                font-family: sans-serif !important;
+            }
+        </style>
+    <![endif]-->
+
+    <!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+    <!--[if !mso]><!-->
+    <!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo" rel="stylesheet" type="text/css" />
+    <!--<![endif]-->
+
+    <!-- Web Font / @font-face : END -->
+
+    <!-- CSS Reset : BEGIN -->
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Archivo");
+
+        /* What it does: Set font family for everything */
+        * {
+            font-family: "Archivo", "Arial", sans-serif;
+            font-size: 16px;
+        }
+
+        /* What it does: Tells the email client that only light styles are provided but the client can transform them to dark. A duplicate of meta color-scheme meta tag above. */
+        :root {
+            color-scheme: light;
+            supported-color-schemes: light;
+        }
+
+        /* What it does: Remove spaces around the email design added by some email clients. */
+        /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+        html,
+        body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+            font-family: "Archivo", "Arial", sans-serif;
+            font-size: 16px;
+        }
+
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* What it does: Centers email on Android 4.4 */
+        div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+
+        /* What it does: forces Samsung Android mail clients to use the entire viewport */
+        #MessageViewBody,
+        #MessageWebViewDiv {
+            width: 100% !important;
+        }
+
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        /* What it does: Fixes webkit padding issue. */
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+
+        /* What it does: Uses a better rendering method when resizing images in IE. */
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* What it does: Prevents Windows 10 Mail from underlining links despite inline CSS. Styles for underlined links should be inline. */
+        a {
+            text-decoration: none;
+        }
+
+        /* What it does: A work-around for email clients meddling in triggered links. */
+        a[x-apple-data-detectors],
+        /* iOS */
+        .unstyle-auto-detected-links a,
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        /* What it does: Prevents Gmail from changing the text color in conversation threads. */
+        .im {
+            color: inherit !important;
+        }
+
+        /* What it does: Prevents Gmail from displaying a download button on large, non-linked images. */
+        .a6S {
+            display: none !important;
+            opacity: 0.01 !important;
+        }
+
+        /* If the above doesn't work, add a .g-img class to any image in question. */
+        img.g-img+div {
+            display: none !important;
+        }
+
+        /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
+        /* Create one of these media queries for each additional viewport size you'd like to fix */
+
+        /* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
+        @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+            u~div .email-container {
+                min-width: 320px !important;
+            }
+        }
+
+        /* iPhone 6, 6S, 7, 8, and X */
+        @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+            u~div .email-container {
+                min-width: 375px !important;
+            }
+        }
+
+        /* iPhone 6+, 7+, and 8+ */
+        @media only screen and (min-device-width: 414px) {
+            u~div .email-container {
+                min-width: 414px !important;
+            }
+        }
+    </style>
+    <!-- CSS Reset : END -->
+
+    <!-- Progressive Enhancements : BEGIN -->
+    <style>
+        /* What it does: Hover styles for buttons */
+        .button-td,
+        .button-a {
+            transition: all 100ms ease-in;
+        }
+
+        .button-td-primary:hover,
+        .button-a-primary:hover {
+            background: #e1a71C !important;
+            border-color: #e1a71C !important;
+        }
+
+        /* Hide Dark Mode stuff by default */
+        .display-only-in-dark-mode {
+            display: none !important;
+        }
+
+        .display-only-in-light-mode {
+            display: inline-block !important;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 480px) {
+
+            /* What it does: Forces table cells into full-width rows. */
+            .stack-column,
+            .stack-column-center {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                direction: ltr !important;
+            }
+
+            /* And center justify these ones. */
+            .stack-column-center {
+                text-align: center !important;
+            }
+
+            /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+            .center-on-narrow {
+                text-align: center !important;
+                display: block !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                float: none !important;
+            }
+
+            table.center-on-narrow {
+                display: inline-block !important;
+            }
+
+            /* What it does: Adjust typography on small screens to improve readability */
+            .email-container p {
+                font-size: 17px !important;
+            }
+        }
+
+        @media screen and (min-width: 690px) {
+            .desktop-hide {
+                display: none !important;
+            }
+
+            .desktop-show {
+                display: table-row !important;
+            }
+
+            .desktop-title {
+                font-size: 28px !important;
+                font-style: normal !important;
+                font-weight: 700 !important;
+                line-height: 36px !important;
+                letter-spacing: -0.56px !important;
+            }
+        }
+
+        /* All Dark Scheme Styling */
+        @media (prefers-color-scheme: dark) {
+
+            /* Email background where supported */
+            body,
+            .background-color {
+                background-color: #3B3C40 !important;
+            }
+
+            h1 {
+                color: #F9FAFB !important;
+            }
+
+            span,
+            p {
+                color: #D1D5DB !important;
+            }
+
+            .button-a-primary,
+            .button-td-primary {
+                color: #374151 !important;
+                background-color: #FFFFFF !important;
+                border-color: #FFFFFF !important;
+            }
+
+            .button-td-primary:hover,
+            .button-a-primary:hover {
+                background-color: #EFEFEF !important;
+                border-color: #EFEFEF !important;
+            }
+
+            .display-only-in-dark-mode {
+                display: inline-block !important;
+            }
+
+            .display-only-in-light-mode {
+                display: none !important;
+            }
+        }
+    </style>
+
+    <!--[if mso]>
+    <style>
+        .desktop-hide {
+                display: none !important;
+            }
+
+        .desktop-show {
+            display: table-row !important;
+        }
+
+        .desktop-title {
+            font-size: 28px !important;
+            font-style: normal !important;
+            font-weight: 700 !important;
+            line-height: 36px !important;
+            letter-spacing: -0.56px !important;
+        }
+    </style>
+    <![endif]-->
+    <!-- Progressive Enhancements : END -->
+
+</head>
+<!--
+	The email background color (#FFFFFF) is defined in three places:
+	1. body tag: for most email clients
+	2. center tag: for Gmail and Inbox mobile apps and web versions of Gmail, GSuite, Inbox, Yahoo, AOL, Libero, Comcast, freenet, Mail.ru, Orange.fr
+	3. mso conditional: For Windows 10 Mail
+-->
+
+<body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #FFFFFF;"
+    class="background-color">
+    <center role="article" aria-roledescription="email" lang="en" style="width: 100%; background-color: #FFFFFF;"
+        class="background-color">
+        <!--[if mso | IE]>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #FFFFFF;" class="background-color">
+    <tr>
+    <td>
+    <![endif]-->
+
+        <!-- Visually Hidden Preheader Text : BEGIN -->
+        <div style="max-height:0; overflow:hidden; mso-hide:all;" aria-hidden="true">
+            Get a driver safety leaderboard delivered to your inbox every monday. Unlock at no cost by connecting your
+            ELD.
+        </div>
+        <!-- Visually Hidden Preheader Text : END -->
+
+        <!-- Create white space after the desired preview text so email clients don’t pull other distracting text into the inbox preview. Extend as necessary. -->
+        <!-- Preview Text Spacing Hack : BEGIN -->
+        <div
+            style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
+            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+        </div>
+        <!-- Preview Text Spacing Hack : END -->
+
+        <!--
+            Set the email width. Defined in two places:
+            1. max-width for all clients except Desktop Windows Outlook, allowing the email to squish on narrow but never go wider than 680px.
+            2. MSO tags for Desktop Windows Outlook enforce a 680px width.
+            Note: The Fluid and Responsive templates have a different width (600px). The hybrid grid is more "fragile", and I've found that 680px is a good width. Change with caution.
+        -->
+        <div style="max-width: 680px; margin: 0 auto;" class="email-container">
+            <!--[if mso]>
+            <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="680">
+            <tr>
+            <td>
+            <![endif]-->
+
+            <!-- Email Body : BEGIN -->
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
+                <!-- Email Header : BEGIN -->
+                <tr>
+                    <td style="padding: 20px 0; text-align: center">
+                        <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/64c022d8-ea16-40be-9cf0-d09d1a8edd56/183x37.png"
+                            width="91" height="18" alt="LogRock Logo" border="0"
+                            style="height: auto; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;"
+                            class="display-only-in-light-mode background-color">
+
+                        <!-- Dark Mode LOGO -->
+                        <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/83075ba5-79b4-427e-85ea-b5e2d596befc/206x52.png"
+                            width="91" height="18" alt="LogRock Logo" border="0"
+                            style="height: auto; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;"
+                            class="display-only-in-dark-mode background-color">
+                    </td>
+                </tr>
+                <!-- Email Header : END -->
+
+                <!-- 1 Column Text + Button : BEGIN -->
+
+                <tr class="desktop-hide">
+                    <td
+                        style="padding: 20px; font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+                        <h1 class="desktop-title" style="
+                                        margin: 0 0 10px; 
+                                        color: #111827;
+                                        font-size: 20px;
+                                        font-family: Archivo, Arial, sans-serif;
+                                        font-style: normal;
+                                        font-weight: 600;
+                                        line-height: 28px;
+                                        letter-spacing: -0.4px;
+                                        ">
+                            Get a Driver Safety Leaderboard Delivered To Your Inbox Every Monday.
+                        </h1>
+                        <p style="margin: 0 0 10px;">
+                            Unlock at no cost by connecting your ELD.
+                        </p>
+
+                        <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/8140d372-dde1-429d-a0ee-4022fdf27082/654x418.png"
+                            width="680" height="" alt="An image showing the top 3 drivers and their scores" border="0"
+                            role="presentation"
+                            style="width: 100%; max-width: 680px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #FFFFFF; margin: auto; display: block;"
+                            class="g-img background-color">
+                    </td>
+                </tr>
+
+                <tr class="desktop-hide">
+                    <td style="background-color: #ffffff;" class="background-color">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"
+                            class="desktop-hide">
+                            <tr>
+                                <td
+                                    style="padding: 10px; font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0 20px 20px;">
+                                    <!-- Button : BEGIN -->
+                                    <!--[if !mso]>
+                                    <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                        style="margin: auto;" class="desktop-hide">
+                                        <tr>
+                                            <td class="button-td button-td-primary"
+                                                style="border-radius: 4px; background: #F1B72C;">
+                                                <a class="button-a button-a-primary" href="https://apps.logrock.com/eld?dot={{dot}}&email={{email}}&legal_name={{legal_name}}&token={{token}}" style="
+                                                    background: #F1B72C; 
+                                                    border: 1px solid #F1B72C; 
+                                                    font-family: Archivo, Arial, sans-serif; 
+                                                    text-decoration: none; 
+                                                    padding: 13px 17px; 
+                                                    display: block; 
+                                                    border-radius: 4px;
+                                                    color: #111827;
+                                                    text-align: center;
+                                                    font-size: 16px;
+                                                    font-style: normal;
+                                                    font-weight: 500;
+                                                    line-height: 24px;
+                                                    ">
+                                                    Get Driver Leaderboard
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p style="color: #9CA3AF;
+                                                    text-align: center;
+                                                    font-size: 14px;
+                                                    font-family: Archivo;
+                                                    font-style: normal;
+                                                    font-weight: 300;
+                                                    line-height: 22px;">
+                                                    No payment information required
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <![endif]-->
+                                    <!-- Button : END -->
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- 2 Even Columns : BEGIN -->
+                <tr class="desktop-show" style="display: none;">
+                    <td align="center" valign="top" style="font-size:0; background-color: #ffffff;"
+                        class="background-color">
+                        <!--[if mso]>
+                        <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="680">
+                        <tr>
+                        <td valign="top" width="330">
+                        <![endif]-->
+                        <div style="display:inline-block; margin: 0 -1px; width:100%; min-width:200px; max-width:340px; vertical-align:top;"
+                            class="stack-column">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                            width="100%" style="font-size: 14px; text-align: left;">
+                                            <tr>
+                                                <td>
+                                                    <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/c9447074-f301-4c24-9299-b4c25c7084a0/504x470.png"
+                                                        width="310" height="" border="0"
+                                                        alt="Image showing the top 3 drivers and their scores"
+                                                        style="width: 100%; max-width: 310px; height: auto; background: #dddddd; font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 20px; color: #555555;"
+                                                        class="center-on-narrow">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--[if mso]>
+                        </td>
+                        <td valign="top" width="330">
+                        <![endif]-->
+                        <div style="display:inline-block; margin: 0 -1px; width:100%; min-width:200px; max-width:340px; vertical-align:top;"
+                            class="stack-column">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td style="padding: 10px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                            width="100%" style="font-size: 14px;text-align: left;">
+                                            <tr>
+                                                <td style="font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding-top: 10px;"
+                                                    class="stack-column-center">
+
+                                                    <h1 style="
+                                                    margin: 0 0 10px; 
+                                                    color: #111827;
+                                                    font-size: 20px;
+                                                    font-family: Archivo, Arial, sans-serif;
+                                                    font-style: normal;
+                                                    font-weight: 600;
+                                                    line-height: 28px;
+                                                    letter-spacing: -0.4px;
+                                                    " class="desktop-title">
+                                                        Get a Driver Safety Leaderboard Delivered To Your Inbox Every
+                                                        Monday.
+                                                    </h1>
+                                                    <p style="margin: 0 0 10px;">
+                                                        Unlock at no cost by connecting your ELD.
+                                                    </p>
+
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="button-td button-td-primary"
+                                                    style="border-radius: 4px; background: #F1B72C;">
+                                                    <a class="button-a button-a-primary"
+                                                        href="https://apps.logrock.com/eld?dot={{dot}}&email={{email}}&legal_name={{legal_name}}&token={{token}}"
+                                                        style="
+                                                background: #F1B72C; 
+                                                border: 1px solid #F1B72C; 
+                                                font-family: Archivo, Arial, sans-serif; 
+                                                text-decoration: none; 
+                                                padding: 13px 17px; 
+                                                display: block; 
+                                                border-radius: 4px;
+                                                color: #111827;
+                                                text-align: center;
+                                                font-size: 16px;
+                                                font-style: normal;
+                                                font-weight: 500;
+                                                line-height: 24px;
+                                                width: 100%;
+                                                ">
+                                                        Get Driver Leaderboard
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                        </table>
+                                        <!-- Button : END -->
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--[if mso]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
+                    </td>
+                </tr>
+                <!-- 2 Even Columns : END -->
+
+                <tr class="desktop-show"></tr>
+
+                <!-- 1 Column Text + Button : BEGIN -->
+                <tr>
+                    <td
+                        style="padding: 20px; font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+                        <h1 class="desktop-title" style="
+                                        margin: 0 0 10px; 
+                                        color: #111827;
+                                        font-size: 20px;
+                                        font-family: Archivo, Arial, sans-serif;
+                                        font-style: normal;
+                                        font-weight: 600;
+                                        line-height: 28px;
+                                        letter-spacing: -0.4px;
+                                        ">
+                            How does it work?
+                        </h1>
+                        <p style="margin: 0 0 10px;">
+                            Our Driver Leaderboard uses data from your ELD to rank drivers based on safety
+                            events and miles driven, promoting healthy competition and encouraging safer
+                            driving habits.
+                        </p>
+
+                        <br />
+
+                        <h1 class="desktop-title" style="
+                                        margin: 0 0 10px; 
+                                        color: #111827;
+                                        font-size: 20px;
+                                        font-family: Archivo, Arial, sans-serif;
+                                        font-style: normal;
+                                        font-weight: 600;
+                                        line-height: 28px;
+                                        letter-spacing: -0.4px;
+                                        ">
+                            How much does it cost?
+                        </h1>
+                        <p style="margin: 0 0 10px;">
+                            There is no charge for this service. We hope if you like it you'll sign up for
+                            our software but there is no obligation and no commitment. We won't ask for any
+                            payment information.
+                        </p>
+
+                        <br />
+
+                        <h1 class="desktop-title" style="
+                                        margin: 0 0 10px; 
+                                        color: #111827;
+                                        font-size: 20px;
+                                        font-family: Archivo, Arial, sans-serif;
+                                        font-style: normal;
+                                        font-weight: 600;
+                                        line-height: 28px;
+                                        letter-spacing: -0.4px;
+                                        ">
+                            How can I get started?
+                        </h1>
+                        <p style="margin: 0 0 10px;">
+                            Click here and follow the instructions. It only takes a couple minutes to set
+                            up.
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="background-color: #ffffff;" class="background-color">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td
+                                    style="padding: 10px; font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0 20px 20px;">
+                                    <!-- Button : BEGIN -->
+                                    <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                        style="margin: auto;">
+                                        <tr>
+                                            <td class="button-td button-td-primary"
+                                                style="border-radius: 4px; background: #F1B72C;">
+                                                <a class="button-a button-a-primary"
+                                                    href="https://apps.logrock.com/eld?dot={{dot}}&email={{email}}&legal_name={{legal_name}}&token={{token}}"
+                                                    style="
+                                                    background: #F1B72C; 
+                                                    border: 1px solid #F1B72C; 
+                                                    font-family: Archivo, Arial, sans-serif; 
+                                                    text-decoration: none; 
+                                                    padding: 13px 17px; 
+                                                    display: block; 
+                                                    border-radius: 4px;
+                                                    color: #111827;
+                                                    text-align: center;
+                                                    font-size: 16px;
+                                                    font-style: normal;
+                                                    font-weight: 500;
+                                                    line-height: 24px;
+                                                    ">Get Driver Leaderboard</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p style="color: #9CA3AF;
+                                                    text-align: center;
+                                                    font-size: 14px;
+                                                    font-family: Archivo;
+                                                    font-style: normal;
+                                                    font-weight: 300;
+                                                    line-height: 22px;">
+                                                    No payment information required
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- Button : END -->
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- 1 Column Text + Button : END -->
+
+                <!-- LogRock Footer: BEGIN -->
+                <tr>
+                    <td
+                        style="padding: 0px; font-family: Archivo, Arial, sans-serif; font-size: 12px; line-height: 15px; text-align: center; color: #ffffff;">
+
+                        <br />
+                        <br />
+
+                        <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/85c66109-6e30-4fd4-8cbb-fb6be5c4f095/60x60.png"
+                            width="24" height="24" alt="LogRock Logo" border="0" role="presentation"
+                            style="height: 24px; width: 24px; font-family: sans-serif; font-size: 15px; line-height: 10px; color: #555555;">
+                        <br />
+                        <br />
+
+                        <span style="
+                        width: 240px;
+                        display: inline-block;
+                        color: #4B5563;
+                        text-align: center;
+                        font-size: 12px;
+                        font-family: Archivo;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px;">
+                            LogRock - the only free Driver Recruiting + DOT compliance software.
+                        </span>
+
+                        <br />
+                        <br />
+
+                        <hr style="width: 240px;" />
+
+                        <br />
+
+                        <span style="
+                        width: 240px;
+                        display: inline-block;
+                        color: #9CA3AF;
+                        text-align: center;
+                        font-size: 12px;
+                        font-family: Archivo;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px;">
+                            Do you have any questions or need help? <br /> Talk to us!
+                        </span>
+
+                        <br />
+                        <br />
+
+                        <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/637e775c-b632-42b7-bd38-eb3fc915afdf/32x32.png"
+                            width="16" height="16" border="0" role="presentation"
+                            style="height: 16px; width: 16px; font-family: sans-serif; font-size: 15px; line-height: 10px; color: #555555;">
+                        <br />
+                        <br />
+
+                        <a href="https://app.logrock.com" style="color: #111827;
+                        text-align: center;
+                        font-size: 12px;
+                        font-family: Archivo;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 16px;
+                        letter-spacing: 0.24px;
+                        text-decoration-line: underline;">
+                            app.logrock.com
+                        </a>
+
+                        <br />
+
+                        <a href="mailto://help@logrock.com" style="color: #111827;
+                        text-align: center;
+                        font-size: 12px;
+                        font-family: Archivo;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 16px;
+                        letter-spacing: 0.24px;
+                        text-decoration-line: underline;">
+                            help@logrock.com
+                        </a>
+
+                        <br />
+
+                        <p style="color: #6B7280;
+                        text-align: center;
+                        font-size: 12px;
+                        font-family: Archivo;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px;">
+                            8am to 6pm CDT
+                        </p>
+
+                        <!-- <webversion style="color: #ffffff; text-decoration: underline; font-weight: bold;">View as a Web
+                            Page</webversion>
+                        <br><br>
+                        Company Name<br><span class="unstyle-auto-detected-links">123 Fake Street, SpringField, OR,
+                            97477 US<br>(123) 456-7890</span>
+                        <br><br>
+                        <unsubscribe style="color: #ffffff; text-decoration: underline;">unsubscribe</unsubscribe> -->
+                    </td>
+                </tr>
+                <!-- LogRock Footer: END -->
+            </table>
+            </td>
+            </tr>
+
+            </table>
+            <!-- Email Body : END -->
+
+            <!--[if mso]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </div>
+
+        <!--[if mso | IE]>
+    </td>
+    </tr>
+    </table>
+    <![endif]-->
+    </center>
+</body>
+
+</html>
