@@ -36,12 +36,11 @@
     <![endif]-->
 
     <!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
-    <!--[if !mso]><!-->
-    <!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+    <!--[if !mso]>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Archivo" rel="stylesheet" type="text/css" />
-    <!--<![endif]-->
+    <![endif]-->
 
     <!-- Web Font / @font-face : END -->
 
@@ -218,7 +217,7 @@
 
             /* What it does: Adjust typography on small screens to improve readability */
             .email-container p {
-                font-size: 17px !important;
+                font-size: 16px !important;
             }
         }
 
@@ -229,7 +228,7 @@
             /* ADD this class to whatever elements are having the wrong BG color on dark mode. */
             body,
             .background-color {
-                background-color: #3B3C40 !important;
+                background-color: #212225 !important;
             }
 
             h1 {
@@ -266,7 +265,54 @@
                 display: none !important;
             }
         }
+
+        @media screen and (min-width: 690px) {
+            .desktop-hide {
+                display: none !important;
+            }
+
+            .desktop-show {
+                display: table-row !important;
+            }
+
+            .desktop-title {
+                font-size: 28px !important;
+                font-style: normal !important;
+                font-weight: 700 !important;
+                line-height: 36px !important;
+                letter-spacing: -0.56px !important;
+            }
+
+            .extra-padding-on-desktop {
+                padding-top: 80px !important;
+            }
+        }
     </style>
+
+    <!-- Styles for Outlook Only (replicating Desktop styles here since it acts as a desktop without media query support) -->
+    <!--[if mso]>
+    <style>
+        .desktop-hide {
+            display: none !important;
+        }
+
+        .desktop-show {
+            display: table-row !important;
+        }
+
+        .desktop-title {
+            font-size: 28px !important;
+            font-style: normal !important;
+            font-weight: 700 !important;
+            line-height: 36px !important;
+            letter-spacing: -0.56px !important;
+        }
+
+        .hide-on-outlook {
+            display: none !important;
+        }
+    </style>
+
     <!-- Progressive Enhancements : END -->
 
 </head>
@@ -277,10 +323,12 @@
 	3. mso conditional: For Windows 10 Mail
 -->
 
-<body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #FFFFFF;">
-    <center role="article" aria-roledescription="email" lang="en" style="width: 100%; background-color: #FFFFFF;">
+<body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #FFFFFF;"
+    class="background-color">
+    <center role="article" aria-roledescription="email" lang="en" style="width: 100%; background-color: #FFFFFF;"
+        class="background-color">
         <!--[if mso | IE]>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #FFFFFF;">
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #FFFFFF;" class="background-color">
     <tr>
     <td>
     <![endif]-->
@@ -298,7 +346,7 @@
         <!-- Create white space after the desired preview text so email clients don’t pull other distracting text into the inbox preview. Extend as necessary. -->
         <!-- Preview Text Spacing Hack : BEGIN -->
         <div
-            style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
+            style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: Archivo, Arial, sans-serif;">
             &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
         </div>
         <!-- Preview Text Spacing Hack : END -->
@@ -319,11 +367,21 @@
             <!-- Email Body : BEGIN -->
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                 <!-- Email Header : BEGIN -->
-                <tr>
+                <tr class="display-only-in-light-mode">
                     <td style="padding: 20px 0; text-align: center">
                         <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/64c022d8-ea16-40be-9cf0-d09d1a8edd56/183x37.png"
                             width="91" height="18" alt="LogRock Logo" border="0"
-                            style="height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;">
+                            style="height: auto; font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 15px; color: #555555;"
+                            class="display-only-in-light-mode background-color">
+                    </td>
+                </tr>
+                <tr class="hide-on-outlook">
+                    <td style="padding: 20px 0; text-align: center">
+                        <!-- Dark Mode LOGO -->
+                        <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/83075ba5-79b4-427e-85ea-b5e2d596befc/206x52.png"
+                            width="91" height="18" alt="LogRock Logo" border="0"
+                            style="height: auto; font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 15px; color: #555555; mso-hide: all;"
+                            class="display-only-in-dark-mode background-color hide-on-outlook">
                     </td>
                 </tr>
                 <!-- Email Header : END -->
@@ -332,7 +390,7 @@
                 <tr>
                     <td style="background-color: #ffffff;">
                         <img src="https://via.placeholder.com/1360x600" width="680" height="" alt="alt_text" border="0"
-                            style="width: 100%; max-width: 680px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555; margin: auto; display: block;"
+                            style="width: 100%; max-width: 680px; height: auto; background: #dddddd; font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 15px; color: #555555; margin: auto; display: block;"
                             class="g-img">
                     </td>
                 </tr>
@@ -829,7 +887,7 @@
 
                         <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/f38f7e36-5e54-44f9-9e6c-7401d2614a6e/50x48.png"
                             width="24" height="24" alt="LogRock Logo" border="0" role="presentation"
-                            style="height: auto; background: #ffffff; font-family: sans-serif; font-size: 15px; line-height: 10px; color: #555555;">
+                            style="height: auto; background: #ffffff; font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 10px; color: #555555;">
 
                         <br />
                         <br />
@@ -840,7 +898,7 @@
                         color: #4B5563;
                         text-align: center;
                         font-size: 12px;
-                        font-family: Archivo;
+                        font-family: Archivo, Arial, sans-serif;
                         font-style: normal;
                         font-weight: 400;
                         line-height: 20px;">
@@ -860,7 +918,7 @@
                         color: #9CA3AF;
                         text-align: center;
                         font-size: 12px;
-                        font-family: Archivo;
+                        font-family: Archivo, Arial, sans-serif;
                         font-style: normal;
                         font-weight: 400;
                         line-height: 20px;">
@@ -872,14 +930,14 @@
 
                         <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/637e775c-b632-42b7-bd38-eb3fc915afdf/32x32.png"
                             width="16" height="16" border="0" role="presentation"
-                            style="height: auto; background: #ffffff; font-family: sans-serif; font-size: 15px; line-height: 10px; color: #555555;">
+                            style="height: auto; background: #ffffff; font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 10px; color: #555555;">
                         <br />
                         <br />
 
                         <a href="https://app.logrock.com" style="color: #111827;
                         text-align: center;
                         font-size: 12px;
-                        font-family: Archivo;
+                        font-family: Archivo, Arial, sans-serif;
                         font-style: normal;
                         font-weight: 400;
                         line-height: 16px;
@@ -893,7 +951,7 @@
                         <a href="mailto://help@logrock.com" style="color: #111827;
                         text-align: center;
                         font-size: 12px;
-                        font-family: Archivo;
+                        font-family: Archivo, Arial, sans-serif;
                         font-style: normal;
                         font-weight: 400;
                         line-height: 16px;
@@ -907,7 +965,7 @@
                         <p style="color: #6B7280;
                         text-align: center;
                         font-size: 12px;
-                        font-family: Archivo;
+                        font-family: Archivo, Arial, sans-serif;
                         font-style: normal;
                         font-weight: 400;
                         line-height: 20px;">
