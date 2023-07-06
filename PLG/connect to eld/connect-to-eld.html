@@ -191,10 +191,6 @@
             display: none !important;
         }
 
-        .display-only-in-light-mode {
-            display: inline-block !important;
-        }
-
         /* Media Queries */
         @media screen and (max-width: 480px) {
 
@@ -227,7 +223,7 @@
 
             /* What it does: Adjust typography on small screens to improve readability */
             .email-container p {
-                font-size: 17px !important;
+                font-size: 16px !important;
             }
         }
 
@@ -245,7 +241,10 @@
                 font-style: normal !important;
                 font-weight: 700 !important;
                 line-height: 36px !important;
-                letter-spacing: -0.56px !important;
+            }
+
+            .extra-padding-on-desktop {
+                padding-top: 80px !important;
             }
         }
 
@@ -294,11 +293,12 @@
         }
     </style>
 
+    <!-- Styles for Outlook Only (replicating Desktop styles here since it acts as a desktop without media query support) -->
     <!--[if mso]>
     <style>
         .desktop-hide {
-                display: none !important;
-            }
+            display: none !important;
+        }
 
         .desktop-show {
             display: table-row !important;
@@ -309,7 +309,14 @@
             font-style: normal !important;
             font-weight: 700 !important;
             line-height: 36px !important;
-            letter-spacing: -0.56px !important;
+        }
+
+        .extra-padding-on-desktop {
+            padding-top: 80px !important;
+        }
+
+        .hide-on-outlook {
+            display: none !important;
         }
     </style>
     <![endif]-->
@@ -366,18 +373,21 @@
             <!-- Email Body : BEGIN -->
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                 <!-- Email Header : BEGIN -->
-                <tr>
+                <tr class="display-only-in-light-mode">
                     <td style="padding: 20px 0; text-align: center">
                         <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/64c022d8-ea16-40be-9cf0-d09d1a8edd56/183x37.png"
                             width="91" height="18" alt="LogRock Logo" border="0"
                             style="height: auto; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;"
                             class="display-only-in-light-mode background-color">
-
+                    </td>
+                </tr>
+                <tr class="hide-on-outlook">
+                    <td style="padding: 20px 0; text-align: center">
                         <!-- Dark Mode LOGO -->
                         <img src="http://cdn.mcauto-images-production.sendgrid.net/9391aa3768f5cbab/83075ba5-79b4-427e-85ea-b5e2d596befc/206x52.png"
                             width="91" height="18" alt="LogRock Logo" border="0"
-                            style="height: auto; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;"
-                            class="display-only-in-dark-mode background-color">
+                            style="height: auto; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555; mso-hide: all;"
+                            class="display-only-in-dark-mode background-color hide-on-outlook">
                     </td>
                 </tr>
                 <!-- Email Header : END -->
@@ -422,7 +432,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="padding: 0 20px 20px;">
+                                <td style="padding: 0 20px">
                                     <!-- Button : BEGIN -->
                                     <!--[if !mso]>
                                     <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0"
@@ -454,7 +464,7 @@
                                                 <p style="color: #9CA3AF;
                                                     text-align: center;
                                                     font-size: 14px;
-                                                    font-family: Archivo;
+                                                    font-family: Archivo, Arial, sans-serif;
                                                     font-style: normal;
                                                     font-weight: 300;
                                                     line-height: 22px;">
@@ -509,15 +519,15 @@
                             class="stack-column">
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                 <tr>
-                                    <td style="padding: 10px;">
+                                    <td style="padding: 0px;">
                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0"
                                             width="100%" style="font-size: 14px;text-align: left;">
                                             <tr>
-                                                <td style="font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding-top: 10px;"
+                                                <td style="font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding-top: 0px;"
                                                     class="stack-column-center">
 
                                                     <h1 style="
-                                                    margin: 0 0 10px; 
+                                                    padding: 0 0 0; 
                                                     color: #111827;
                                                     font-size: 20px;
                                                     font-family: Archivo, Arial, sans-serif;
@@ -529,10 +539,11 @@
                                                         Get a Driver Safety Leaderboard Delivered To Your Inbox Every
                                                         Monday.
                                                     </h1>
-                                                    <p style="margin: 0 0 10px;">
+                                                    <p style="padding: 0 0 0px; font-size: 18px;">
                                                         Unlock at no cost by connecting your ELD.
                                                     </p>
-
+                                                    <br />
+                                                    <br />
                                                 </td>
                                             </tr>
 
@@ -562,6 +573,7 @@
                                                 </td>
                                             </tr>
 
+
                                         </table>
                                         <!-- Button : END -->
                                     </td>
@@ -577,12 +589,10 @@
                 </tr>
                 <!-- 2 Even Columns : END -->
 
-                <tr class="desktop-show"></tr>
-
                 <!-- 1 Column Text + Button : BEGIN -->
                 <tr>
-                    <td
-                        style="padding: 20px; font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+                    <td style="padding: 20px; font-family: Archivo, Arial, sans-serif; font-size: 15px; line-height: 20px; color: #555555;"
+                        class="extra-padding-on-desktop">
                         <h1 class="desktop-title" style="
                                         margin: 0 0 10px; 
                                         color: #111827;
@@ -683,7 +693,7 @@
                                                 <p style="color: #9CA3AF;
                                                     text-align: center;
                                                     font-size: 14px;
-                                                    font-family: Archivo;
+                                                    font-family: Archivo, Arial, sans-serif;
                                                     font-style: normal;
                                                     font-weight: 300;
                                                     line-height: 22px;">
@@ -720,7 +730,7 @@
                         color: #4B5563;
                         text-align: center;
                         font-size: 12px;
-                        font-family: Archivo;
+                        font-family: Archivo, Arial, sans-serif;
                         font-style: normal;
                         font-weight: 400;
                         line-height: 20px;">
@@ -740,7 +750,7 @@
                         color: #9CA3AF;
                         text-align: center;
                         font-size: 12px;
-                        font-family: Archivo;
+                        font-family: Archivo, Arial, sans-serif;
                         font-style: normal;
                         font-weight: 400;
                         line-height: 20px;">
@@ -759,7 +769,7 @@
                         <a href="https://app.logrock.com" style="color: #111827;
                         text-align: center;
                         font-size: 12px;
-                        font-family: Archivo;
+                        font-family: Archivo, Arial, sans-serif;
                         font-style: normal;
                         font-weight: 400;
                         line-height: 16px;
@@ -773,7 +783,7 @@
                         <a href="mailto://help@logrock.com" style="color: #111827;
                         text-align: center;
                         font-size: 12px;
-                        font-family: Archivo;
+                        font-family: Archivo, Arial, sans-serif;
                         font-style: normal;
                         font-weight: 400;
                         line-height: 16px;
@@ -787,7 +797,7 @@
                         <p style="color: #6B7280;
                         text-align: center;
                         font-size: 12px;
-                        font-family: Archivo;
+                        font-family: Archivo, Arial, sans-serif;
                         font-style: normal;
                         font-weight: 400;
                         line-height: 20px;">
