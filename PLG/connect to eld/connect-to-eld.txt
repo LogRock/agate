@@ -1,31 +1,44 @@
-# Get a Driver Safety Leaderboard Delivered To Your Inbox Every Monday.
+Get a driver safety leaderboard delivered to your inbox every monday. Unlock at no cost by connecting your ELD.
+‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌  ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌  ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+*********************************************************************
+Get a Driver Safety Leaderboard Delivered To Your Inbox Every Monday.
+*********************************************************************
 
 Unlock at no cost by connecting your ELD.
 
-Get Driver Leaderboard by visiting: 
+Get Driver Leaderboard ( {{url}} )
 
-https://apps.logrock.com/eld
+*****************
+How does it work?
+*****************
 
-## How does it work?
+Our Driver Leaderboard combines all the most relevant data from your ELD to fuel our powerful algorithms to rank your drivers, generating healthy competition and encouraging safer driving habits.
 
-Our Driver Leaderboard uses data from your ELD to rank drivers based on safety events and miles driven, promoting healthy competition and encouraging safer driving habits.
-
-## How much does it cost?
+**********************
+How much does it cost?
+**********************
 
 There is no charge for this service. We hope if you like it you'll sign up for our software but there is no obligation and no commitment. We won't ask for any payment information.
 
-## How can I get started?
+**********************
+How can I get started?
+**********************
 
 Click here and follow the instructions. It only takes a couple minutes to set up.
 
-Get Driver Leaderboard by visiting: 
-
-https://apps.logrock.com/eld
+Get Driver Leaderboard ( {{url}} )
 
 No payment information required
 
-LogRock - the only free Driver Recruiting + DOT compliance software. 
-Do you have any questions or need help? Talk to us!
-app.logrock.com
-help@logrock.com
+LogRock - the only free Driver Recruiting + DOT compliance software.
+
+Do you have any questions or need help?
+Talk to us!
+
+app.logrock.com ( https://app.logrock.com )
+help@logrock.com ( //help@logrock.com )
+
 8am to 6pm CDT
+
+Powered by LogRock
+Unsubscribe ( {{{unsubscribe}}} ) - Unsubscribe Preferences ( {{{unsubscribe_preferences}}} )
